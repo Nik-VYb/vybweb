@@ -1,9 +1,8 @@
 export const dynamic = 'force-static';
-export const runtime = 'edge';
 export const revalidate = 60;
 
 export default function ArticlesIndex() {
-  // Temporary static view while we wire Edge-safe data
+  // Temporary static view while we wire an API for data
   const rows: { slug: string; title?: string }[] = [];
 
   return (
