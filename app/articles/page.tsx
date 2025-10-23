@@ -1,3 +1,6 @@
+export const dynamic = 'force-static';
+export const runtime = 'edge';
+export const revalidate = 60; // optional, lets Cloudflare re-generate every 60s
 import { getDb } from "@/lib/mongo";
 
 type Row = { slug: string; title?: string };
