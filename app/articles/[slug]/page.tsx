@@ -1,3 +1,6 @@
+export const dynamic = 'force-static';
+export const runtime = 'edge';
+export const revalidate = 60; // optional, lets Cloudflare re-generate every 60s
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
