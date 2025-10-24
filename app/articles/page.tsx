@@ -1,6 +1,8 @@
 export const dynamic = 'force-static';
 export const revalidate = 60;
 
+import Link from "next/link";
+
 export default function ArticlesIndex() {
   // Temporary static view while we wire an API for data
   const rows: { slug: string; title?: string }[] = [];
@@ -14,7 +16,7 @@ export default function ArticlesIndex() {
         <ul>
           {rows.map((r) => (
             <li key={r.slug}>
-              <a href={`/articles/${r.slug}`}>{r.title || r.slug}</a>
+              <Link href={`/articles/${r.slug}`}>{r.title || r.slug}</Link>
             </li>
           ))}
         </ul>
