@@ -2,6 +2,7 @@ export const dynamic = 'force-static';
 export const revalidate = 60;
 
 import type { Metadata } from "next";
+import Link from "next/link";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -20,7 +21,9 @@ export default async function ArticlePage({ params }: Params) {
   const { slug } = await params;
   return (
     <main className="prose mx-auto p-6">
-      <p><a href="/articles">← Back to Articles</a></p>
+      <p>
+        <Link href="/articles">← Back to Articles</Link>
+      </p>
       <h1>{slug.replace(/[-_]+/g, " ")}</h1>
       <p>Content not loaded yet. We’ll plug in the API next.</p>
     </main>
