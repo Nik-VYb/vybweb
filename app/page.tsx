@@ -1,27 +1,10 @@
-export const dynamic = 'force-dynamic';
-import { getDb } from "@/lib/mongo";
+export const runtime = 'edge';
 
-type Doc = { slug: string; title?: string; status?: string };
-
-export default async function ArticlesIndex() {
-  const { articles } = await getDb();
-  const docs = (await articles
-    .find({ status: "published" })
-    .project({ slug: 1, title: 1, _id: 0 })
-    .sort({ published_at: -1 })
-    .limit(50)
-    .toArray()) as Doc[];
-
+export default function Home() {
   return (
     <main className="prose mx-auto p-6">
-      <h1>Latest Articles</h1>
-      <ul>
-        {docs.map((d) => (
-          <li key={d.slug}>
-            <a href={"/articles/" + d.slug}>{d.title || d.slug}</a>
-          </li>
-        ))}
-      </ul>
+      <h1>Best No-Code App</h1>
+      <p>Home is up. Articles live at <a href="/articles">/articles</a>.</p>
     </main>
   );
 }
